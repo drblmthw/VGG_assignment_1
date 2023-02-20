@@ -26,15 +26,10 @@ def main():
 
     contours, hierarchy = cv.findContours(d_canny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
 
-    counter = 0
-
-    for contour in contours:
-        if 25000 < cv.contourArea(contour) < 40000:
-            cv.drawContours(image, contour, -1, (255, 22, 13), 7)
-            counter += 1
+    cv.drawContours(image, contours, -1, (255, 22, 13), 7)
 
     cv.imshow('W1', image)
-    print("Counter: " + str(counter))
+
     cv.waitKey()
     cv.destroyAllWindows()
 
